@@ -7382,6 +7382,11 @@ textarea.form-control-lg {
   margin-bottom: 3rem !important;
 }
 
+.Distiction {
+  color: #bd5d38;
+  font-weight: bold;
+}
+
 .mb-auto {
   margin-bottom: auto !important;
 }
