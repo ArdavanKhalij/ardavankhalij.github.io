@@ -4088,8 +4088,8 @@ textarea.form-control-lg {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
-  background-color: transparent;
-  border: 1px solid transparent;
+  background-color: #003399;
+  border: 1px solid #ff6600;
   border-radius: 0.25rem;
   transition: box-shadow 0.15s ease-in-out;
 }
