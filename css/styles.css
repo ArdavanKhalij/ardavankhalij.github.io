@@ -11425,6 +11425,11 @@ section.resume-section .resume-section-content {
   width: 100%;
 }
 
+.grades-style {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {
   section.resume-section {
     min-height: 100vh;
