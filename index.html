@@ -1,1043 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Ardavan Khalij</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Ardavan Khalij</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/me.jpg" alt="..." /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#About">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#RA">Research interests</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#HAA">Honors and Awards</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Publications">Publications</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#SAW">Seminars and Workshops</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#LE">Laboratory Experiences</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#AP">Academic Projects</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#WE">Working Experiences</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#TE">Teaching Experiences</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#CER">Certificates</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#CS">Skills and Test Scores</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#RE">Recommenders</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#LPAM">Leadership Positions and Memberships</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#SAE">Entertainment</a></li>
-                </ul>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ardavan Khalij – AI & Music Informatics</title>
+    <meta name="description" content="Personal academic website of Ardavan Khalij – Computer Scientist (AI, ML, Computational Creativity, Music Informatics)." />
+    <meta name="author" content="Ardavan Khalij" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ardavan Khalij – AI & Music Informatics" />
+    <meta property="og:description" content="Computer Scientist focused on AI, ML, Computational Creativity, and Music Informatics." />
+    <meta property="og:image" content="assets/img/me.jpg" />
+    <meta property="og:url" content="https://example.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <script defer src="https://use.fontawesome.com/releases/v6.5.0/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+      :root{
+        --bg: #0b0d13;
+        --bg-2: #111520;
+        --fg: #f4f6fb;
+        --muted: #b8c0d9;
+        --primary: #74c0fc;
+        --accent: #ffd43b;
+        --link: #91a7ff;
+        --chip: #1b2336;
+        --card: #0f1421;
+        --shadow: 0 10px 30px rgba(0,0,0,.25);
+      }
+      @media (prefers-color-scheme: light){
+        :root{
+          --bg: #f8fafc;
+          --bg-2: #ffffff;
+          --fg: #0b0d13;
+          --muted: #445066;
+          --primary: #1c7ed6;
+          --accent: #f59f00;
+          --link: #364fc7;
+          --chip: #eef2ff;
+          --card: #ffffff;
+        }
+      }
+      html{scroll-behavior:smooth}
+      body{background:linear-gradient(120deg,var(--bg),var(--bg-2)); color:var(--fg); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+      a{color:var(--link)}
+      a:hover{opacity:.9}
+
+      /* Layout */
+      .sideNav{
+        position:fixed; inset:0 auto 0 0; width:270px; background:var(--card); border-right:1px solid rgba(255,255,255,.06); z-index:1030; box-shadow:var(--shadow);
+      }
+      .brand{padding:1.25rem}
+      .brand img{width:128px; height:128px; object-fit:cover; border-radius:50%; box-shadow:0 10px 20px rgba(0,0,0,.35)}
+      .brand h1{font-family:"DM Serif Display",serif; font-weight:800; font-size:1.8rem; margin:1rem 0 .25rem}
+      .brand .subtitle{color:var(--muted)}
+      .nav-link{color:var(--muted)}
+      .nav-link.active, .nav-link:hover{color:var(--fg)}
+
+      main{margin-left:270px}
+      section{padding:4.5rem 1.5rem;}
+      .section-title{font-weight:800; letter-spacing:.3px; margin-bottom:1.25rem}
+      .lead{color:var(--muted)}
+      .card{background:var(--card); border:1px solid rgba(255,255,255,.06); box-shadow:var(--shadow)}
+      .chip{display:inline-block; padding:.4rem .7rem; border-radius:999px; background:var(--chip); color:var(--fg); margin:.25rem .35rem .25rem 0; font-size:.85rem}
+      .muted{color:var(--muted)}
+      .kbd{background:var(--chip); padding:.2rem .45rem; border-radius:.35rem; font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
+      .timeline{border-left:2px solid rgba(255,255,255,.1); padding-left:1rem}
+      .timeline .dot{width:10px;height:10px;border-radius:50%;background:var(--accent); display:inline-block; margin-left:-16px; position:relative; top:-1px}
+
+      .social a{display:inline-flex; align-items:center; justify-content:center; width:40px;height:40px;border-radius:999px; background:var(--chip); margin-right:.5rem}
+
+      .btn-primary{--bs-btn-bg: var(--primary); --bs-btn-border-color: var(--primary); --bs-btn-hover-bg:#4dabf7; --bs-btn-hover-border-color:#4dabf7}
+      .btn-outline-light{--bs-btn-color: var(--fg); --bs-btn-border-color: rgba(255,255,255,.25)}
+
+      .grid{display:grid; gap:1rem}
+      @media(min-width: 768px){
+        section{padding:5rem 3rem}
+        .gridCols-2{grid-template-columns:repeat(2, minmax(0,1fr))}
+        .gridCols-3{grid-template-columns:repeat(3, minmax(0,1fr))}
+      }
+
+      /* Skip link */
+      .skip-link{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden}
+      .skip-link:focus{left:1rem; top:1rem; width:auto; height:auto; padding:.5rem .75rem; background:var(--accent); color:#000; border-radius:.5rem; z-index:2000}
+
+      /* Footer */
+      footer{padding:2rem 1.5rem; border-top:1px solid rgba(255,255,255,.06)}
+
+      /* Small utilities */
+      .nowrap{white-space:nowrap}
+      .shadow-soft{box-shadow:var(--shadow)}
+
+      /* Scrollspy target padding fix */
+      [data-bs-spy="scroll"] .scroll-mt{scroll-margin-top: 80px}
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Person",
+      "name":"Ardavan Khalij",
+      "jobTitle":"Computer Scientist",
+      "affiliation":{"@type":"Organization","name":"AG Insurance"},
+      "email":"mailto:ardavan.khalij@outlook.com",
+      "image":"assets/img/me.jpg",
+      "url":"https://example.com/",
+      "sameAs":[
+        "https://scholar.google.com/citations?hl=en&user=0JYc0dgAAAAJ",
+        "https://www.linkedin.com/in/ardavan-khalij/",
+        "https://github.com/ArdavanKhalij",
+        "https://twitter.com/ardavan_khalij"
+      ]
+    }
+    </script>
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="80" tabindex="0">
+    <a class="skip-link" href="#about">Skip to content</a>
+
+    <!-- Sidebar -->
+    <aside class="sideNav d-none d-md-flex flex-column" aria-label="Primary">
+      <div class="brand text-center">
+        <img src="assets/img/me.jpg" alt="Portrait of Ardavan Khalij" loading="lazy" />
+        <h1 class="mb-0">Ardavan <span style="color:var(--primary)">Khalij</span></h1>
+        <div class="subtitle small">AI • ML • Music Informatics</div>
+        <div class="social mt-3">
+          <a class="text-decoration-none" href="https://www.linkedin.com/in/ardavan-khalij/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a>
+          <a class="text-decoration-none" href="https://github.com/ArdavanKhalij" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+          <a class="text-decoration-none" href="https://twitter.com/ardavan_khalij" target="_blank" rel="noopener"><i class="fab fa-x-twitter" aria-hidden="true"></i><span class="visually-hidden">X/Twitter</span></a>
+          <a class="text-decoration-none" href="mailto:ardavan.khalij@outlook.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span class="visually-hidden">Email</span></a>
+        </div>
+        <div class="mt-3">
+          <a class="btn btn-sm btn-primary me-2" href="#contact">Contact</a>
+          <a class="btn btn-sm btn-outline-light" href="https://scholar.google.com/citations?hl=en&user=0JYc0dgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        </div>
+      </div>
+      <nav id="nav" class="nav flex-column px-3 pb-4 overflow-auto">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#research">Research</a>
+        <a class="nav-link" href="#education">Education</a>
+        <a class="nav-link" href="#publications">Publications</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#teaching">Teaching</a>
+        <a class="nav-link" href="#skills">Skills & Tests</a>
+        <a class="nav-link" href="#certificates">Certificates</a>
+        <a class="nav-link" href="#leadership">Leadership</a>
+        <a class="nav-link" href="#interests">Interests</a>
+      </nav>
+    </aside>
+
+    <!-- Top bar (mobile) -->
+    <header class="d-md-none sticky-top bg-body-tertiary border-bottom">
+      <div class="container-fluid py-2 d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <img src="assets/img/me.jpg" alt="Ardavan avatar" width="36" height="36" class="rounded-circle" />
+          <strong>Ardavan Khalij</strong>
+        </div>
+        <button class="btn btn-sm btn-primary" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Open navigation"><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="mobileNavLabel">Navigate</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action" href="#about" data-bs-dismiss="offcanvas">About</a>
+            <a class="list-group-item list-group-item-action" href="#research" data-bs-dismiss="offcanvas">Research</a>
+            <a class="list-group-item list-group-item-action" href="#education" data-bs-dismiss="offcanvas">Education</a>
+            <a class="list-group-item list-group-item-action" href="#publications" data-bs-dismiss="offcanvas">Publications</a>
+            <a class="list-group-item list-group-item-action" href="#experience" data-bs-dismiss="offcanvas">Experience</a>
+            <a class="list-group-item list-group-item-action" href="#teaching" data-bs-dismiss="offcanvas">Teaching</a>
+            <a class="list-group-item list-group-item-action" href="#skills" data-bs-dismiss="offcanvas">Skills & Tests</a>
+            <a class="list-group-item list-group-item-action" href="#certificates" data-bs-dismiss="offcanvas">Certificates</a>
+            <a class="list-group-item list-group-item-action" href="#leadership" data-bs-dismiss="offcanvas">Leadership</a>
+            <a class="list-group-item list-group-item-action" href="#interests" data-bs-dismiss="offcanvas">Interests</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="content">
+      <!-- About -->
+      <section id="about" class="scroll-mt">
+        <div class="container-fluid">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-10 col-12">
+              <h2 class="section-title">About</h2>
+              <p class="lead">I'm Ardavan Khalij. I hold an M.Sc. in <strong>Computer Science (Artificial Intelligence)</strong> from <span class="nowrap">Vrije Universiteit Brussel</span> and a B.Sc. in <strong>Computer Engineering</strong> from the University of Kashan. My research sits at the intersection of <strong>AI</strong>, <strong>Computational Creativity</strong>, and <strong>Music Informatics</strong>.</p>
+              <p class="muted">My master's thesis explored modelling, analysis, and generation of Iranian traditional music using computational creativity and machine learning (supervisors: Prof. Dr. Geraint Wiggins and Dr. Nicholas Harley). I am currently developing multiple papers based on this work; one has been presented at the <a href="https://www.uu.nl/en/research/interaction/music-information-computing" target="_blank" rel="noopener">International Conference on Computational & Cognitive Musicology</a>.</p>
+              <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
+                <a class="btn btn-primary" href="https://drive.google.com/uc?id=1D8X8hi4bW1RanBvNtjk_Py2zVdX-ltBt&export=download" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down me-2"></i>Download CV</a>
+                <a class="btn btn-outline-light" href="https://github.com/ArdavanKhalij" target="_blank" rel="noopener"><i class="fab fa-github me-2"></i>GitHub</a>
+                <span class="muted ms-auto"><i class="fa-solid fa-location-dot"></i> Ixelles, Brussels, Belgium</span>
+              </div>
             </div>
-        </nav>
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="About">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Ardavan
-                        <span class="text-primary">Khalij</span>
-                    </h1>
-                    <div class="subheading mb-5">
-                        Kroonlaan 238, Ixelles, Brussels, Belgium·
-                        <a href="mailto:ardavan.khalij@outlook.com">ardavan.khalij@outlook.com</a>
-                    </div>
-                    <p class="lead mb-5">My name is Ardavan Khalij. I studied for my Bachelor's at the University of Kashan in the field of computer engineering 
-                        and my Master's at Vrije Universiteit Brussels (VUB) in the field of computer science and the 
-                        specialization in Artificial Intelligence. My Master's thesis was about modelling, analysing, and generating Iranian traditional 
-                        music with computational creativity and machine learning under the supervision of Professor Dr. Geraint Wiggins and Dr. Nicholas Harley. 
-                        I am currently working on three new papers based on my thesis, and also I will present one of them at the 
-                        <a href="https://www.uu.nl/en/research/interaction/music-information-computing">Second international conference on 
-                        computational and cognitive musicology</a> in the University of Utrecht on the 18th of October.
-                        Some of my projects are available on my GitHub page down below.</p>
-                    <!--<div>My CV: <a href="https://drive.google.com/uc?id=1D8X8hi4bW1RanBvNtjk_Py2zVdX-ltBt&export=download">Download CV</a></div> -->
-                    <div>My Google Scholar: <a href="https://scholar.google.com/citations?hl=en&user=0JYc0dgAAAAJ">Google Scholar</a></div>
-                    <p> </p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="https://www.linkedin.com/in/ardavan-khalij/"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="https://github.com/ArdavanKhalij"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="https://twitter.com/ardavan_khalij"><i class="fab fa-square-x-twitter"></i></a>
-                        <a class="social-icon" href="https://www.facebook.com/profile.php?id=100080123335325"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Research interests-->
-            <section class="resume-section" id="RA">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Research interests</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <h3>Artificial Intelligence</h3>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <h3>Machine Learning</h3>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <h3>Deep Learning</h3>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <h3>Computational Creativity</h3>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <h3>Music Informatics</h3>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <h3>Reinforcement Learning</h3>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            <h3>Natural Language Processing</h3>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Education-->
-            <section class="resume-section" id="Education">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Education</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Vrije Universiteit Brussel (VUB)</h3>
-                            <div class="subheading mb-3">Master of Science</div>
-                            <div>Computer Science - Artificial Intelligence</div>
-                            <div>GPA: <b>3.35/4.00</b> according to WES - <b>Passed with Distinction</b></div>
-                            <div>GPA of last semester: <b>3.87/4.00</b> according to WES</div>
-<!--                             <div>Thesis Topic: Extending CHARM Framework for Statistical Modeling of Iranian Music, Thesis Grade: 16/20</div> -->
-                            <div>Thesis Topic: Extending CHARM Framework for Statistical Modeling of Iranian Music, Thesis Grade: <b>A</b></div>
-                            <div>Master's Thesis: <!--<a href="https://drive.google.com/uc?export=download&id=1Z1Ar8XOEqZBmWtXE_DgLTGSDY8us0Edb">Download</a>--></div>
-                            <div>Supervisors: Dr. Geraint Wiggins, Dr. Nicholas Harley</div>
-                            <div>Diploma and my transcript of records: <a href="https://drive.google.com/uc?export=download&id=1_yUCUs1VdpUSE1Q0skPX1sKjgd7OBSfp">Download</a></div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2021 - July 2023</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">University of Kashan</h3>
-                            <div class="subheading mb-3">Bachelor of Science</div>
-                            <div>Computer Engineering</div>
-                            <div>GPA: <b>3.78/4.00</b> according to WES</div>
-                            <div>Last 2 years GPA: <b>3.87/4.00</b> according to WES</div>
-<!--                             <div>Thesis Topic: Examining the Michigan method to classify medical data, Thesis Grade: 20/20</div> -->
-                            <div>Thesis Topic: Examining the Michigan method to classify medical data, Thesis Grade: <b>A</b></div>
-                            <div>Bachelor's Thesis: <a href="https://www.researchgate.net/profile/Ardavan-Khalij/publication/362126708_brrsy_rwsh_myshygan_bh_mnzwr_tbqh_bndy_dadh_hay_pzshky/links/62d7d00411afc23ee4ce0e3b/brrsy-rwsh-myshygan-bh-mnzwr-tbqh-bndy-dadh-hay-pzshky.pdf?origin=publicationDetail&_sg%5B0%5D=u-tlwHp35xKfPVrJQIWabSUkDIhoZaQqUACvwDx7EXPDk4shwr4DXWW8NHqGP6TqFkOj0kuw11i4F7L3Qt-_qg.M13IMuU21G_ZpU5MRyzT4VPAUWvrIBd_uVaURxnn4VspdNuWWwr-M6xx3LCVa4d7drYILYZ_ihpDmrPgLXJoVw&_sg%5B1%5D=wB_Lqbz3e204UkqjYa0w3EIxAOvwuRqxJoe28CDTa1lNT7AQGYNLdT5NzTB8_LKtcrX_UU0JJL5NVuTJAOZ18Zi0on8uTRDFxjBEG8O6IYI8.M13IMuU21G_ZpU5MRyzT4VPAUWvrIBd_uVaURxnn4VspdNuWWwr-M6xx3LCVa4d7drYILYZ_ihpDmrPgLXJoVw&_iepl=&_rtd=eyJjb250ZW50SW50ZW50IjoibWFpbkl0ZW0ifQ%3D%3D">Download</a></div>
-                            <div>Supervisor: Dr. Mehdi Vahidipour</div>
-                            <div>Diploma and my transcript of records: <a href="https://drive.google.com/uc?id=1QJf4CRcxGuIWmSDrkCtc67NN_OqG5kt2&export=download">Download</a></div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2017 - June 2021</span></div>
-                    </div>
-                    <div class="subheading mb-3"><hr></div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between">
-                            <div class="flex-grow-1">
-                                <h3 class="mb-0">Selected Courses</h3>
-                                <ul class="fa-ul mb-0">
-<!--                                 <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Computational Game Theory: 15.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Reinforcement Learning: 16.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Current Trends in AI: 16.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Fundamentals of Computer Engineering: 18.60/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Adaptive System Seminar: 17.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Computational Creativity: 15.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Data Mining: 20.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Principles of Computational Intelligence: 19.75/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Artificial Intelligence: 16.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Discrete Mathematics: 17.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Advanced Programming: 18.30/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Data Structures: 16.90/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Algorithms Design: 18.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    MATLAB Workshop: 19.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Theory of Automata and Languages: 17.50/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Software Systems Analysis and Design: 18.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Computer Networks: 19.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Principles of Compiler Design: 20.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Operating Systems Laboratory: 19.80/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Software Engineering: 19.30/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Database Laboratory: 19.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Foundation of information retrieval and web search: 20.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Computer Network Laboratory: 19.50/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Hardware-Software Co-Design: 20.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Scientific Integrity: 16.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Information Theory: 15.00/20.00
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Research Training: 18.00/20.00
-                                </li> -->
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Computational Game Theory: <b>B</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Reinforcement Learning: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Current Trends in AI: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Fundamentals of Computer Engineering: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Adaptive System Seminar: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Computational Creativity: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Data Mining: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Principles of Computational Intelligence: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Artificial Intelligence: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Discrete Mathematics: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Advanced Programming: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Data Structures: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Algorithms Design: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    MATLAB Workshop: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Theory of Automata and Languages: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Software Systems Analysis and Design: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Computer Networks: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Principles of Compiler Design: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Operating Systems Laboratory: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Software Engineering: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Database Laboratory: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Foundation of information retrieval and web search: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Computer Network Laboratory: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Hardware-Software Co-Design: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Scientific Integrity: <b>A</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Information Theory: <b>B</b>
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Research Training: <b>A</b>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Honors and Awards-->
-            <section class="resume-section" id="HAA">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Honors and Awards</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Winner of the Computer Science Scholarship of Vrije Universiteit Brussel (VUB) for 2021-2022 and 2022-2023 among all the 2021-2022 Accepted Students for Master of Computer Science at Vrije Universiteit Brussel (VUB), Vrije Universiteit Brussel, Belgium.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ranked as the fourth top student among more than 50 students of Computer Engineering, University of Kashan, Iran.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Being among the top 5% of university entry exam in Iran, 2016, Tehran, Iran.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Accepted into the first step of the Astronomy and Astrophysics Olympiad in second year of high school in 2014, Tehran, Iran.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Accepted into the first step of the Astronomy and Astrophysics Olympiad in third year of high school and being among the top ten among approximately 4,000 in Iran in 2015, Tehran, Iran.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Accepted into the first step of the physics Olympiad in third year of high school in 2015, Tehran, Iran.
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Publications-->
-            <section class="resume-section" id="Publications">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Publications</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij, Nicholas Harley; Computational Creativity: Generating melodies with unlimited length based on a new way of thinking; For GECCO; In Preparation.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij, Geraint Wiggins, Nicholas Harley; Statistical Modelling of Iranian Music; For the Journal of New Music Research; In Preparation.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij, Geraint Wiggins, Nicholas Harley; Statistical Modelling and Generation of Iranian Music: For ICCC; In Preparation.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Nicholas Harley, Ardavan Khalij; CHAKRA: Common Hierarchical Abstract Knowledge Representation for Anything; In Preparation.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij, Kevin Sam, Nicolas Rowies; WoLF+ algorithm based on WoLF; AAMAS; In Preparation.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij; Racism in artificial intelligence. Is this possible?; MLearning.ai, Medium, <a href="https://medium.com/mlearning-ai/racism-in-artificial-intelligence-is-this-possible-81629047e30"> Read the paper </a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij; Fuzzy Logic Part 2 – (β, Cf, and find the right rule for new data); MLearning.ai, Medium, <a href="https://medium.com/mlearning-ai/fuzzy-logic-part-2-%CE%B2-cf-and-find-the-right-rule-for-new-data-81a4dd6b2dc3"> Read the paper </a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij; Fuzzy Logic Part 1 – (The μ Parameter); MLearning.ai, Medium, <a href="https://medium.com/mlearning-ai/fuzzy-logic-part-1-the-%CE%BC-parameter-ad2f647cdca8"> Read the paper </a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij; What is AI, Machine Learning, Data Mining, and Fuzzy Logic?; Nerd For Tech, Medium, <a href="https://medium.com/nerd-for-tech/what-is-ai-machine-learning-data-mining-and-fuzzy-logic-8467dd9b5117"> Read the paper </a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij; Evolutionary Computation – Part 2 (Different Sections and Abilities); MLearning.ai, Medium, <a href="https://medium.com/mlearning-ai/evolutionary-computation-part-2-different-sections-and-abilities-eaaaa3b60ef0"> Read the paper </a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ardavan Khalij; Evolutionary Computation – Part 1 (Introduction and Benefits and Weaknesses); MLearning.ai, Medium, <a href="https://medium.com/mlearning-ai/evolutionary-computation-part-1-introduction-and-benefits-and-weaknesses-d2212e2d0944"> Read the paper </a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                             Ardavan Khalij; How to solve poor internet connection; Nerd For Tech, Medium, <a href="https://medium.com/nerd-for-tech/how-to-solve-poor-internet-connection-99b0ef3f04e2"> Read the paper </a>
-                        </li>
-                         <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                             Ardavan Khalij; Compare a new method of classification with methods that already exist; MLearning.ai, Medium, <a href="https://medium.com/mlearning-ai/compare-a-new-method-of-classification-with-methods-that-already-exist-3109f4f27150"> Read the paper </a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Seminars and Workshops-->
-            <section class="resume-section" id="SAW">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Seminars and Workshops</h2>
-                    <div class="subheading mb-3"></div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between">
-                            <div class="flex-grow-1">
-                                <h3 class="mb-0">Seminars</h3>
-                                <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Voluntary participant in “Gaming engines”,2017, University of Kashan, Iran.
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Voluntary participant in “Gaming sponsorship”, 2018, University of Kashan, Iran.
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Voluntary participant in “4th International conference on computer games challenges & opportunities”, 21 of February 2019, University of Kashan, Iran.
-                                </li>
-                            </ul>
-                            <h3 class="mb-0">Workshops</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    6 - day workshop on Web design by HTML and CSS, University of Kashan, February 2018, Kashan, Iran
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Laboratory Experiences-->
-            <section class="resume-section" id="LE">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Laboratory Experiences</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Analysis of graphs and photos and also use different effects on them in Matlab, Matlab workshop.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Working with Proteus software, Quartos software, and also using “SN 74 ALS 245 A” chip to do some experiments, Logic Circuits, and Computer Architecture Laboratory.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Using command line professionally to control the operating system and the computer, Operating Systems Laboratory.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Using Code vision application and ATmega16/32 board for making counters and different functions, Microprocessor laboratory.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Using different artificial intelligence algorithms to develop several games, Artificial intelligence.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Internship with my supervisor about Image Processing for license plates and seeing how they work.
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Academic Projects-->
-            <section class="resume-section" id="AP">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Academic Projects</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            NLP unit for assissting the call takers in CIC centers
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            WoLF-PHC and improve it (WoLF+)
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Image Colorization with CNN
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Music Generator creative system by Python
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Smart cooking bot by Lisp and FCG
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            E-commerce semantic web system by PostgreSQL
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            A domain-specific language for poster design by SWI Prolog
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Nine men Morris game competing with A.I by SWI Prolog
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Booking system Microservice architecture by Scala Akka Actor
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Twitter-like website with MVC software architecture by Scala Akka Play
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            NMP Package extraction by Scala Akka Stream
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            1 to 9 puzzle game in iOS for solving by A.I
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Perfect mind game in iOS for solving by A.I
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Sudoku game in iOS for solving by A.I
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Make the primary computer for the fifth season of Morris Mano’s Architecture of computer book with Proteus
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Make an ALU for the Logical States with Proteus
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Design a C++ program for my advanced programming course at university
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Design a C program for my basic programming course at university
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Design an X&O game for IOS competing with A.I
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Design a calculator for IOS
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!--Working Experiences-->
-            <section class="resume-section" id="WE">
-                <div class="resume-section-content"> 
-                    <h2 class="mb-5">Working Experiences</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Position: IT Young Professional</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Location: AG Insurance, Brussels, Belgium
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Descriptions: IS None Life API Team.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2023 - Present</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Position: NLP unite designer for emergency call center</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Location: VUB and Belgium Federal Police, Brussels, Belgium
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Project: Designing a NLU for taking the calls and suggests questions to the call takers.
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Descriptions: SpaCy in Python has been used.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">January 2022 - June 2023</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Position: UI/UX Designer and Application Developer</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Location: Khushe Mehdi company, Gilan, Iran.
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Project: Developing an application for managing their products.
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Description: I was developing an application with python Tkinter module.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Fabruary 2020 - June 2020</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Position: iOS Developer and UI/UX Designer</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Location: PINCO company, Kashan, Iran
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Project: Developing an application for iOS devices (Sib-app-store)
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Description: I was on this position for 4 months and the application was about giving information about the company and also make reservations for the entertainment facilities.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">December 2018 - March 2019</span></div>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-
-            <!--Teaching Experiences-->
-            <section class="resume-section" id="TE">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Teaching Experiences</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Position: Instructor</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Location: University of Kashan, Kashan, Iran
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Course: Computer Lab
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2020 - January 2021</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Position: Teaching Assistant</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Location: University of Kashan, Kashan, Iran
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Course: Basic Programming
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Professor: Dr. Fereshteh Dehghani
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2020 - January 2021</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Position: Teaching Assistant</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Location: University of Kashan, Kashan, Iran
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Course: Basic Programming
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Professor: Dr. Fereshteh Dehghani
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2019 - January 2020</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Position: Teaching Assistant</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Location: University of Kashan, Kashan, Iran
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Course: Algorithm Design
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Professor: Dr. Javad Salimi Sartakhti
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2019 - January 2020</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Position: Instructor</h3>
-                            <ul class="fa-ul mb-0">
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Location: Salam Dibaji Highschool, Tehran, Iran
-                                </li>
-                                <li>
-                                    <span class="fa-li"><i class="fas fa-check"></i></span>
-                                    Course: Astrophysics
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2014 - June 2015</span></div>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
+          </div>
         </div>
-            
-        <!--Certificates-->
-            <section class="resume-section" id="CER">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Certificates</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            4th Confrence on Computer Games, Challenges & Oppertunites, 21 February 2019, University of Kashan, Kashan, Iran - <a href="https://drive.google.com/uc?export=download&id=1uIVKcR4SUNdEWFOTyYnTvMQpFC3pbtio">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Support Vector Machines in Python, From Start to Finish - <a href="https://www.coursera.org/account/accomplishments/certificate/NSE53PCMCX5Y">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Python for Data Visualization:Matplotlib & Seaborn(Enhanced) - <a href="https://www.coursera.org/account/accomplishments/certificate/DK8NTBDZ86A7">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Python for Data Analysis: Pandas & NumPy - <a href="https://www.coursera.org/account/accomplishments/certificate/59WAZPYF533W">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Python 101: Develop Your First Python Program - <a href="https://www.coursera.org/account/accomplishments/certificate/9KAAELKUFXYC">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Linear Regression with NumPy and Python - <a href="https://www.coursera.org/account/accomplishments/certificate/XWVS4F83FJ4B">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Image Processing with Python - <a href="https://www.coursera.org/account/accomplishments/certificate/JMBACRB246F8">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Image Denoising Using AutoEncoders in Keras and Python - <a href="https://www.coursera.org/account/accomplishments/certificate/DSMSE5XM7BBD">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Game Theory with Python - <a href="https://www.coursera.org/account/accomplishments/certificate/H2B2PS98ZHHL">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Exploratory Data Analysis With Python and Pandas - <a href="https://www.coursera.org/account/accomplishments/certificate/Y8HAYG3K762Y">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Create Your First Web App with Python and Flask - <a href="https://www.coursera.org/account/accomplishments/certificate/CQNQ876N6U8X">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Concepts in Python: Loops, Functions and Returns - <a href="https://www.coursera.org/account/accomplishments/certificate/AWFFBPBZ9ZPS">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            ChatGPT with Python: Build a Chatbot With the OpenAI API - <a href="https://www.coursera.org/account/accomplishments/certificate/FRQ9M37S2WJ6">Download the Certificate</a>
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            COVID19 Data Analysis Using Python - <a href="https://www.coursera.org/account/accomplishments/certificate/JBU5K4YK8Z5J">Download the Certificate</a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
+      </section>
 
-        <!--Working Experiences-->
-            <section class="resume-section" id="CS">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Skills and Test Scores</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                        <h3 class="mb-0">Programming Languages</h3>
-                        <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Professional: Python, Swift, C, C#, .NETCore, .NETFramework, COBOL, PostgreSQL, SQLite, SQL-server, Prolog, R, LaTeX, CSS, HTML, Julia
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Elementary: C++, WPF, MATLAB, Assembly, Oracle, PHP, VHDL, Scala, Lisp, Turtle, OWL, JavaScript
-                        </li>
-                    </ul>
-                            <p> </p>
-                    <h3 class="mb-0">Applied Software</h3>
-                    <p>Visual Studio, MATLAB, SQL-server, Microsoft office Word, Microsoft office Excel, Microsoft office PowerPoint, XCode, Visual studios, EA UML Diagram, Telnet, Pages, Proteus, AVR, Quartos, ModelSim, CodeVision, FCG Editor, IntelliJ, PyCharm, SWI Prolog, Protégé, RStudio, PGAdmin, LispWorks</p>
-
-                    <h3 class="mb-0">Operating Systems</h3>
-                    <p>Windows, Linux Ubuntu, Mac OS, IOS, Android</p>
-                    <p> </p>
-                    <h3 class="mb-0">Test Scores</h3>
-                        <ul class="fa-ul mb-0">
-                            <li>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>
-                                18/11/2022: IELTS Academic Overall Score 7, Reading 7, Listening 8.5, Speaking 6.5, Writing 6 - <a href="https://drive.google.com/uc?export=download&id=1kUIkDmR5uodxMZhEDsxMzWJL2lO6uLL9">Download</a>
-                            </li>
-                            <li>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>
-                                09/10/2022: Duolingo English Test Overall Score 120, Literacy 125, Comprehension 125, Conversation 115, Production 100 - <a href="https://drive.google.com/uc?export=download&id=1PauU4gszdq_Lx7EPSrPDjJFvtgumDtfj">Download</a>
-                            </li>
-                            <li>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>
-                                05/10/2020: GRE General Overall Score 299, Quantitative Reasoning 162 Verbal Reasoning 137 Analytical Writing 2.5 - <a href="https://drive.google.com/uc?export=download&id=1iI3Sl1MQBxPs23XylFtXfYphgj-6fGx-">Download</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-        
-        <!--Recommenders-->
-            <section class="resume-section" id="RE">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Recommenders</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                        <h3 class="mb-0">Dr. Geraint Wiggins. (Professor)</h3>
-                        <ul class="fa-ul mb-0">
-                            <li>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>
-                                Department of Computer Science, Vrije Universiteit Brussel, Brussels, Belgium.
-                            </li>
-                            <li>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>
-                                Email : <a href="mailto:geraint.wiggins@vub.be">geraint.wiggins@vub.be</a>
-                            </li>
-                        </ul>
-                        <p> </p>
-                                                       
-                        <h3 class="mb-0">Dr. Mehdi Vahidipour. (Assistant Professor)</h3>
-                        <ul class="fa-ul mb-0">
-                            <li>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>
-                                Department of Computer engineering, University of Kashan, Kashan, Iran.
-                            </li>
-                            <li>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>
-                                Email : <a href="mailto:vahidipour@kashanu.ac.ir">vahidipour@kashanu.ac.ir</a>
-                            </li>
-                        </ul>
-                        <p> </p>
-                            
-                        <h3 class="mb-0">Dr. Fereshte Dehghani. (Assistant Professor)</h3>
-                        <ul class="fa-ul mb-0">
-                            <li>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>
-                                Department of Computer engineering, University of Kashan, Kashan, Iran.
-                            </li>
-                            <li>
-                                <span class="fa-li"><i class="fas fa-check"></i></span>
-                                Email : <a href="fdehghani@kashanu.ac.ir">fdehghani@kashanu.ac.ir</a>
-                            </li>
-                        </ul>
-                        <p> </p>
-                    </div>
-                    </div>
-                </div>
+      <!-- Research interests -->
+      <section id="research" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Research Interests</h2>
+          <div class="grid gridCols-3">
+            <span class="chip">Artificial Intelligence</span>
+            <span class="chip">Machine Learning</span>
+            <span class="chip">Deep Learning</span>
+            <span class="chip">Computational Creativity</span>
+            <span class="chip">Music Informatics</span>
+            <span class="chip">Reinforcement Learning</span>
+            <span class="chip">Natural Language Processing</span>
+          </div>
         </div>
-            </section>
-            <hr class="m-0" />
-        
-        <!--Leadership Positions and Memberships-->
-            <section class="resume-section" id="LPAM">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Leadership Positions and Memberships</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                        <h3 class="mb-0">Leadership Positions</h3>
-                        <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            One of the founders of Synapse Game Developing Group in 2018, University of Kashan, Iran.
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Manager of University of Kashan’s Game Developing Club, University of Kashan, 2018 - 2020.
-                        </li>
-                    </ul>
-                            <p> </p>
-                    <h3 class="mb-0">Memberships</h3>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Member of Game developing club, University of Kashan, 2018 - 2020.
-                        </li>
-                    </ul>
-                            </div>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
+      </section>
 
-        <!--Sports and entertainment-->
-            <section class="resume-section" id="SAE">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Entertainment</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Singing
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Piano
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Song writer
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Coding
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Swimming
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Volleyball
-                        </li>
+      <!-- Education -->
+      <section id="education" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Education</h2>
+          <div class="row g-3">
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 mb-1">Vrije Universiteit Brussel (VUB) — Master of Science</h3>
+                    <p class="mb-2 muted">Computer Science – Artificial Intelligence</p>
+                    <ul class="mb-0">
+                      <li>GPA: <strong>3.35/4.00</strong> (WES) – <strong>Passed with Distinction</strong></li>
+                      <li>Last semester GPA: <strong>3.87/4.00</strong> (WES)</li>
+                      <li>Thesis: <em>Extending CHARM Framework for Statistical Modeling of Iranian Music</em> — Grade: <strong>A</strong></li>
+                      <li>Supervisors: Dr. Geraint Wiggins, Dr. Nicholas Harley</li>
+                      <li>Diploma & Transcript: <a href="https://drive.google.com/uc?export=download&id=1_yUCUs1VdpUSE1Q0skPX1sKjgd7OBSfp" target="_blank" rel="noopener">Download</a></li>
                     </ul>
+                  </div>
+                  <div class="text-end muted">Sep 2021 – Jul 2023</div>
                 </div>
-            </section>
-            <hr class="m-0" />
+              </div>
+            </div>
 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
-    </body>
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 mb-1">University of Kashan — Bachelor of Science</h3>
+                    <p class="mb-2 muted">Computer Engineering</p>
+                    <ul class="mb-0">
+                      <li>GPA: <strong>3.78/4.00</strong> (WES); Last two years: <strong>3.87/4.00</strong> (WES)</li>
+                      <li>Thesis: <em>Examining the Michigan Method to Classify Medical Data</em> — Grade: <strong>A</strong> (<a href="https://www.researchgate.net/profile/Ardavan-Khalij/publication/362126708_brrsy_rwsh_myshygan_bh_mnzwr_tbqh_bndy_dadh_hay_pzshky/links/62d7d00411afc23ee4ce0e3b/brrsy-rwsh-myshygan-bh-mnzwr-tbqh-bndy-dadh-hay-pzshky.pdf?origin=publicationDetail" target="_blank" rel="noopener">View</a>)</li>
+                      <li>Supervisor: Dr. Mehdi Vahidipour</li>
+                      <li>Diploma & Transcript: <a href="https://drive.google.com/uc?id=1QJf4CRcxGuIWmSDrkCtc67NN_OqG5kt2&export=download" target="_blank" rel="noopener">Download</a></li>
+                    </ul>
+                  </div>
+                  <div class="text-end muted">Sep 2017 – Jun 2021</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <h3 class="h5">Selected Courses (grades)</h3>
+            <div class="grid gridCols-3">
+              <span class="chip">Reinforcement Learning — A</span>
+              <span class="chip">Current Trends in AI — A</span>
+              <span class="chip">Computational Creativity — A</span>
+              <span class="chip">Data Mining — A</span>
+              <span class="chip">Principles of Computational Intelligence — A</span>
+              <span class="chip">Algorithms Design — A</span>
+              <span class="chip">Information Theory — B</span>
+              <span class="chip">Game Theory — B</span>
+              <span class="chip">Operating Systems Lab — A</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section id="publications" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Publications</h2>
+          <div class="row g-3">
+            <!-- Example item -->
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <h3 class="h5 mb-1">Computational Creativity: Generating melodies with unlimited length based on a new way of thinking</h3>
+                <p class="mb-2 muted">Ardavan Khalij, Nicholas Harley — GECCO — <span class="badge text-bg-secondary">In preparation</span></p>
+              </div>
+            </div>
+
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <h3 class="h5 mb-1">Statistical Modelling of Iranian Music</h3>
+                <p class="mb-2 muted">Ardavan Khalij, Geraint Wiggins, Nicholas Harley — Journal of New Music Research — <span class="badge text-bg-secondary">In preparation</span></p>
+              </div>
+            </div>
+
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <h3 class="h5 mb-1">Statistical Modelling and Generation of Iranian Music</h3>
+                <p class="mb-2 muted">Ardavan Khalij, Geraint Wiggins, Nicholas Harley — ICCC — <span class="badge text-bg-secondary">In preparation</span></p>
+              </div>
+            </div>
+
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <h3 class="h5 mb-1">CHAKRA: Common Hierarchical Abstract Knowledge Representation for Anything</h3>
+                <p class="mb-0 muted">Nicholas Harley, Ardavan Khalij — <span class="badge text-bg-secondary">In preparation</span></p>
+              </div>
+            </div>
+
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <h3 class="h5 mb-1">WoLF+ algorithm based on WoLF</h3>
+                <p class="mb-0 muted">Ardavan Khalij, Kevin Sam, Nicolas Rowies — AAMAS — <span class="badge text-bg-secondary">In preparation</span></p>
+              </div>
+            </div>
+
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <h3 class="h5 mb-1">Racism in artificial intelligence. Is this possible?</h3>
+                <p class="mb-2 muted">MLearning.ai (Medium) — <a href="https://medium.com/mlearning-ai/racism-in-artificial-intelligence-is-this-possible-81629047e30" target="_blank" rel="noopener">Read</a></p>
+                <ul class="mb-0 small muted">
+                  <li>Additional essays on Fuzzy Logic (Parts 1 & 2), Evolutionary Computation (Parts 1 & 2), AI/ML overviews, and more (see Medium links in the original list).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience (Work + Labs + Projects combined with filters) -->
+      <section id="experience" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Experience</h2>
+
+          <div class="row g-3">
+            <!-- Job 1 -->
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 mb-1">IT Young Professional</h3>
+                    <p class="mb-2 muted">AG Insurance • Brussels, Belgium</p>
+                    <ul class="mb-0">
+                      <li>IS Non-Life API Team</li>
+                    </ul>
+                  </div>
+                  <div class="text-end muted">Sep 2023 – Present</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 mb-1">NLP unit designer for emergency call centers</h3>
+                    <p class="mb-2 muted">VUB & Belgian Federal Police • Brussels, Belgium</p>
+                    <ul class="mb-0">
+                      <li>Designed an NLU to assist call takers with suggested questions, using <span class="kbd">spaCy</span> in Python.</li>
+                    </ul>
+                  </div>
+                  <div class="text-end muted">Jan 2022 – Jun 2023</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 mb-1">UI/UX Designer & Application Developer</h3>
+                    <p class="mb-2 muted">Khushe Mehdi Co. • Gilan, Iran</p>
+                    <ul class="mb-0">
+                      <li>Built a product management desktop app with Python <span class="kbd">tkinter</span>.</li>
+                    </ul>
+                  </div>
+                  <div class="text-end muted">Feb 2020 – Jun 2020</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Job 4 -->
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 mb-1">iOS Developer & UI/UX Designer</h3>
+                    <p class="mb-2 muted">PINCO • Kashan, Iran</p>
+                    <ul class="mb-0">
+                      <li>Developed an iOS app for reservations and company information (Sib App Store).</li>
+                    </ul>
+                  </div>
+                  <div class="text-end muted">Dec 2018 – Mar 2019</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-1">
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <h3 class="h6 text-uppercase mb-3">Selected Academic Projects</h3>
+                <div class="grid gridCols-3">
+                  <span class="chip">NLP assistant for CIC call takers</span>
+                  <span class="chip">WoLF-PHC (WoLF+)</span>
+                  <span class="chip">CNN Image Colorization</span>
+                  <span class="chip">Creative Music Generator (Python)</span>
+                  <span class="chip">Smart Cooking Bot (Lisp + FCG)</span>
+                  <span class="chip">E‑commerce Semantic Web (PostgreSQL)</span>
+                  <span class="chip">Poster DSL (SWI Prolog)</span>
+                  <span class="chip">Nine Men’s Morris (Prolog)</span>
+                  <span class="chip">Microservices Booking (Scala Akka)</span>
+                  <span class="chip">Twitter-like site (Scala Play)</span>
+                  <span class="chip">NPM package extractor (Akka Streams)</span>
+                  <span class="chip">iOS puzzle & logic games (AI)</span>
+                  <span class="chip">ALU & Simple CPU (Proteus)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Teaching -->
+      <section id="teaching" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Teaching</h2>
+          <div class="row g-3">
+            <div class="col-12 col-xl-10">
+              <div class="card p-4 timeline">
+                <div class="mb-3"><span class="dot"></span> <strong>Instructor</strong> — University of Kashan — Computer Lab <span class="muted">(Sep 2020 – Jan 2021)</span></div>
+                <div class="mb-3"><span class="dot"></span> <strong>Teaching Assistant</strong> — University of Kashan — Basic Programming; Prof. Dr. Fereshteh Dehghani <span class="muted">(Sep 2019 – Jan 2020; Sep 2020 – Jan 2021)</span></div>
+                <div class="mb-0"><span class="dot"></span> <strong>Instructor</strong> — Salam Dibaji High School — Astrophysics <span class="muted">(Sep 2014 – Jun 2015)</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills & Tests -->
+      <section id="skills" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Skills & Test Scores</h2>
+          <div class="row g-3">
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <h3 class="h6 text-uppercase">Programming</h3>
+                <p class="mb-2"><span class="badge text-bg-primary">Professional</span></p>
+                <div class="grid gridCols-3 mb-3">
+                  <span class="chip">Python</span>
+                  <span class="chip">Swift</span>
+                  <span class="chip">C</span>
+                  <span class="chip">C#</span>
+                  <span class="chip">.NET (Core/Framework)</span>
+                  <span class="chip">COBOL</span>
+                  <span class="chip">PostgreSQL</span>
+                  <span class="chip">SQLite</span>
+                  <span class="chip">SQL Server</span>
+                  <span class="chip">Prolog</span>
+                  <span class="chip">R</span>
+                  <span class="chip">LaTeX</span>
+                  <span class="chip">HTML/CSS</span>
+                  <span class="chip">Julia</span>
+                </div>
+                <p class="mb-2"><span class="badge text-bg-secondary">Elementary</span></p>
+                <div class="grid gridCols-3">
+                  <span class="chip">C++</span>
+                  <span class="chip">WPF</span>
+                  <span class="chip">MATLAB</span>
+                  <span class="chip">Assembly</span>
+                  <span class="chip">Oracle</span>
+                  <span class="chip">PHP</span>
+                  <span class="chip">VHDL</span>
+                  <span class="chip">Scala</span>
+                  <span class="chip">Lisp</span>
+                  <span class="chip">Turtle</span>
+                  <span class="chip">OWL</span>
+                  <span class="chip">JavaScript</span>
+                </div>
+                <hr class="my-4" />
+                <h3 class="h6 text-uppercase">Tools & Platforms</h3>
+                <div class="grid gridCols-3">
+                  <span class="chip">VS / VS Code</span>
+                  <span class="chip">MATLAB</span>
+                  <span class="chip">SQL Server</span>
+                  <span class="chip">Xcode</span>
+                  <span class="chip">EA UML</span>
+                  <span class="chip">Proteus</span>
+                  <span class="chip">AVR / Quartus</span>
+                  <span class="chip">ModelSim</span>
+                  <span class="chip">CodeVision</span>
+                  <span class="chip">FCG Editor</span>
+                  <span class="chip">IntelliJ / PyCharm</span>
+                  <span class="chip">SWI Prolog</span>
+                  <span class="chip">Protégé</span>
+                  <span class="chip">RStudio</span>
+                  <span class="chip">pgAdmin</span>
+                </div>
+                <hr class="my-4" />
+                <h3 class="h6 text-uppercase">Operating Systems</h3>
+                <div class="grid gridCols-3">
+                  <span class="chip">Windows</span>
+                  <span class="chip">Linux (Ubuntu)</span>
+                  <span class="chip">macOS</span>
+                  <span class="chip">iOS</span>
+                  <span class="chip">Android</span>
+                </div>
+                <hr class="my-4" />
+                <h3 class="h6 text-uppercase">Test Scores</h3>
+                <ul class="mb-0">
+                  <li>IELTS Academic (18 Nov 2022): Overall 7 — R 7, L 8.5, S 6.5, W 6 — <a href="https://drive.google.com/uc?export=download&id=1kUIkDmR5uodxMZhEDsxMzWJL2lO6uLL9" target="_blank" rel="noopener">Download</a></li>
+                  <li>Duolingo (09 Oct 2022): Overall 120 — Literacy 125, Comprehension 125, Conversation 115, Production 100 — <a href="https://drive.google.com/uc?export=download&id=1PauU4gszdq_Lx7EPSrPDjJFvtgumDtfj" target="_blank" rel="noopener">Download</a></li>
+                  <li>GRE General (05 Oct 2020): 299 — Q 162, V 137, AW 2.5 — <a href="https://drive.google.com/uc?export=download&id=1iI3Sl1MQBxPs23XylFtXfYphgj-6fGx-" target="_blank" rel="noopener">Download</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certificates -->
+      <section id="certificates" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Certificates</h2>
+          <div class="row g-3">
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <ul class="mb-0">
+                  <li>4th Conference on Computer Games: Challenges & Opportunities — 21 Feb 2019 — University of Kashan — <a href="https://drive.google.com/uc?export=download&id=1uIVKcR4SUNdEWFOTyYnTvMQpFC3pbtio" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Support Vector Machines in Python — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/NSE53PCMCX5Y" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Python for Data Visualization: Matplotlib & Seaborn — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/DK8NTBDZ86A7" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Python for Data Analysis: Pandas & NumPy — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/59WAZPYF533W" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Python 101: Develop Your First Python Program — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/9KAAELKUFXYC" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Linear Regression with NumPy and Python — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/XWVS4F83FJ4B" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Image Processing with Python — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/JMBACRB246F8" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Image Denoising Using Autoencoders in Keras & Python — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/DSMSE5XM7BBD" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Game Theory with Python — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/H2B2PS98ZHHL" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Exploratory Data Analysis with Python & Pandas — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/Y8HAYG3K762Y" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Create Your First Web App with Python & Flask — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/CQNQ876N6U8X" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>Concepts in Python: Loops, Functions & Returns — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/AWFFBPBZ9ZPS" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>ChatGPT with Python: Build a Chatbot with the OpenAI API — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/FRQ9M37S2WJ6" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>COVID‑19 Data Analysis Using Python — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/JBU5K4YK8Z5J" target="_blank" rel="noopener">Certificate</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership -->
+      <section id="leadership" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Leadership & Memberships</h2>
+          <div class="row g-3">
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <h3 class="h6 text-uppercase">Leadership</h3>
+                <ul>
+                  <li>Co‑founder, Synapse Game Development Group — 2018, University of Kashan</li>
+                  <li>Manager, University of Kashan’s Game Development Club — 2018–2020</li>
+                </ul>
+                <h3 class="h6 text-uppercase mt-3">Memberships</h3>
+                <ul class="mb-0">
+                  <li>Member, Game Development Club — University of Kashan (2018–2020)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interests -->
+      <section id="interests" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Interests</h2>
+          <div class="card p-4 col-12 col-xl-10">
+            <div class="grid gridCols-3">
+              <span class="chip">Singing</span>
+              <span class="chip">Piano</span>
+              <span class="chip">Songwriting</span>
+              <span class="chip">Coding</span>
+              <span class="chip">Swimming</span>
+              <span class="chip">Volleyball</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / Recommenders -->
+      <section id="contact" class="scroll-mt">
+        <div class="container-fluid">
+          <h2 class="section-title">Recommenders & Contact</h2>
+          <div class="row g-3">
+            <div class="col-12 col-xl-10">
+              <div class="card p-4">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <h3 class="h6 text-uppercase">Recommenders</h3>
+                    <ul class="mb-0">
+                      <li class="mb-2"><strong>Prof. Dr. Geraint Wiggins</strong> — VUB — <a href="mailto:geraint.wiggins@vub.be">geraint.wiggins@vub.be</a></li>
+                      <li class="mb-2"><strong>Dr. Mehdi Vahidipour</strong> — University of Kashan — <a href="mailto:vahidipour@kashanu.ac.ir">vahidipour@kashanu.ac.ir</a></li>
+                      <li class="mb-0"><strong>Dr. Fereshteh Dehghani</strong> — University of Kashan — <a href="mailto:fdehghani@kashanu.ac.ir">fdehghani@kashanu.ac.ir</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <h3 class="h6 text-uppercase">Contact</h3>
+                    <p class="mb-2">Email: <a href="mailto:ardavan.khalij@outlook.com">ardavan.khalij@outlook.com</a></p>
+                    <p class="mb-2">Location: Ixelles, Brussels, Belgium</p>
+                    <p class="mb-0">Scholar: <a href="https://scholar.google.com/citations?hl=en&user=0JYc0dgAAAAJ" target="_blank" rel="noopener">Profile</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mt-4">
+        <div class="container-fluid">
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 col-12 col-xl-10">
+            <small class="muted">© <span id="year"></span> Ardavan Khalij</small>
+            <a href="#content" class="btn btn-sm btn-outline-light"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Live2D widget (optional) -->
+    <script defer src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
+    <script>
+      // Init Live2D if available
+      window.addEventListener('DOMContentLoaded', () => {
+        const L2D = window.L2Dwidget;
+        if (L2D && L2D.init) {
+          L2D.init({
+            model:{ scale:1, hHeadPos:0.5, vHeadPos:0.618, jsonPath:"/live2dw/assets/hijiki.model.json" },
+            display:{ superSample:2, width:150, height:300, position:"right", hOffset:0, vOffset:-20 },
+            mobile:{ show:true, scale:0.6 },
+            react:{ opacityDefault:0.7, opacityOnHover:0.2 },
+            log:false,
+            pluginJsPath:"lib/",
+            pluginModelPath:"assets/",
+            pluginRootPath:"live2dw/",
+            tagMode:false
+          });
+        }
+      });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+      // Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Activate scrollspy in JS (for dynamic content)
+      const dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'))
+      dataSpyList.forEach(function (dataSpyEl) {
+        bootstrap.ScrollSpy.getInstance(dataSpyEl) || new bootstrap.ScrollSpy(dataSpyEl, { target: '#nav', offset: 80 })
+      })
+    </script>
+  </body>
 </html>
