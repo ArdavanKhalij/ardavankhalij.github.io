@@ -30,37 +30,57 @@
       :root{
         --bg: #0b0d13;
         --bg-2: #0d1220;
-        --fg: #f5f7ff;
-        --muted: #c6cbe0;
+        --fg: #f7f9ff;
+        --muted: #d2d7ea; /* brighter for dark mode */
         --primary: #74c0fc;
         --accent: #ffd43b;
-        --link: #a5b4fc;
+        --link: #b4c2ff;
         --chip: #1b2336;
         --card: #0f1421;
-        --shadow: 0 10px 30px rgba(0,0,0,.25);
-        --border: rgba(255,255,255,.08);
+        --shadow: 0 12px 34px rgba(0,0,0,.28);
+        --border: rgba(255,255,255,.12);
       }
       @media (prefers-color-scheme: light){
         :root{
           --bg: #f6f8fc;
           --bg-2: #ffffff;
-          --fg: #111827;
-          --muted: #475569;
+          --fg: #0b1220;
+          --muted: #525f78;
           --primary: #1c7ed6;
           --accent: #f59f00;
           --link: #364fc7;
           --chip: #eef2ff;
           --card: #ffffff;
-          --border: rgba(0,0,0,.08);
+          --border: rgba(0,0,0,.12);
         }
       }
-      /* Reset/contrast fixes */
+
+      /* Background animation */
+      @keyframes floatBg {
+        0% {background-position: 0% 0%, 100% 0%, 0 0}
+        50% {background-position: 100% 50%, 0% 50%, 0 0}
+        100% {background-position: 0% 0%, 100% 0%, 0 0}
+      }
+
       html{scroll-behavior:smooth}
-      body{background:radial-gradient(80vmax 80vmax at -10% -20%, #1a2033 0%, transparent 60%), radial-gradient(70vmax 70vmax at 120% -10%, #112035 0%, transparent 55%), linear-gradient(120deg,var(--bg),var(--bg-2)); color:var(--fg); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; line-height:1.6}
+      body{
+        background:
+          radial-gradient(70vmax 70vmax at -10% -20%, #1a2240 0%, transparent 60%),
+          radial-gradient(60vmax 60vmax at 120% -10%, #0f2744 0%, transparent 55%),
+          linear-gradient(120deg,var(--bg),var(--bg-2));
+        background-size: 120% 120%, 120% 120%, auto;
+        animation: floatBg 18s ease-in-out infinite;
+        color:var(--fg);
+        font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+        line-height:1.65
+      }
       *, *::before, *::after{box-sizing:border-box}
       a{color:var(--link)}
       a:hover{opacity:.9}
-      .text-muted, .muted, .card p, .card li, .card .muted{color:var(--muted)!important}
+
+      /* Contrast fixes */
+      .muted{color:var(--muted)!important}
+      .card p, .card li, .card .text{color:var(--fg)!important}
       .list-group-item{background:var(--card); color:var(--fg)}
 
       /* Layout */
@@ -76,9 +96,8 @@
       section{padding:4.5rem 1.5rem;}
       .section-title{font-weight:800; letter-spacing:.3px; margin-bottom:1.25rem; position:relative; display:inline-block}
       .section-title:after{content:""; position:absolute; left:0; right:0; bottom:-6px; height:3px; background:linear-gradient(90deg,var(--primary),transparent 70%)}
-      .lead{color:var(--muted)}
-      .card{background:var(--card); border:1px solid var(--border); box-shadow:var(--shadow)}
-      .chip{display:inline-block; padding:.45rem .75rem; border-radius:999px; background:var(--chip); color:var(--fg); margin:.25rem .35rem .25rem 0; font-size:.88rem; border:1px solid var(--border)}
+      .card{background:var(--card); border:1px solid var(--border); box-shadow:var(--shadow); border-radius:.85rem}
+      .chip{display:inline-block; padding:.5rem .85rem; border-radius:999px; background:var(--chip); color:var(--fg); margin:.35rem .4rem .35rem 0; font-size:.9rem; border:1px solid var(--border)}
       .kbd{background:var(--chip); padding:.2rem .45rem; border-radius:.35rem; font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
       .timeline{border-left:2px solid var(--border); padding-left:1rem}
       .timeline .dot{width:10px;height:10px;border-radius:50%;background:var(--accent); display:inline-block; margin-left:-16px; position:relative; top:-1px}
@@ -87,7 +106,7 @@
       .btn-primary{--bs-btn-bg: var(--primary); --bs-btn-border-color: var(--primary); --bs-btn-hover-bg:#4dabf7; --bs-btn-hover-border-color:#4dabf7; color:#06121f}
       .btn-outline-light{--bs-btn-color: var(--fg); --bs-btn-border-color: var(--border)}
       .badge{border:1px solid var(--border)}
-      .badge.text-bg-secondary{background:rgba(255,255,255,.08)!important; color:var(--fg)!important}
+      .badge.text-bg-secondary{background:rgba(255,255,255,.1)!important; color:var(--fg)!important}
 
       .grid{display:grid; gap:1rem}
       @media(min-width: 768px){
@@ -104,12 +123,18 @@
       footer{padding:2rem 1.5rem; border-top:1px solid var(--border)}
 
       /* Animations */
-      .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease}
-      .reveal.in{opacity:1; transform:none}
-      .hover-rise{transition:transform .25s ease, box-shadow .25s ease}
-      .hover-rise:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.35)}
+      .reveal{opacity:0; transform:translateY(22px) scale(.98); filter:blur(3px); transition:opacity .7s ease, transform .7s ease, filter .7s ease}
+      .reveal.in{opacity:1; transform:none; filter:none}
+      .reveal[data-delay="1"]{transition-delay:.1s}
+      .reveal[data-delay="2"]{transition-delay:.2s}
+      .reveal[data-delay="3"]{transition-delay:.3s}
+      .hover-rise{transition:transform .28s ease, box-shadow .28s ease}
+      .hover-rise:hover{transform:translateY(-6px) scale(1.01); box-shadow:0 18px 44px rgba(0,0,0,.38)}
       .glow-border{position:relative}
-      .glow-border:before{content:""; position:absolute; inset:-1px; background:linear-gradient(120deg, rgba(116,192,252,.6), rgba(165,180,252,.4), transparent 70%); filter:blur(8px); z-index:-1; border-radius:.75rem}
+      .glow-border:before{content:""; position:absolute; inset:-1px; background:linear-gradient(120deg, rgba(116,192,252,.6), rgba(165,180,252,.5), transparent 70%); filter:blur(8px); z-index:-1; border-radius:.85rem}
+
+      /* Scroll progress bar */
+      #progress{position:fixed; top:0; left:0; height:3px; width:0; background:linear-gradient(90deg,var(--primary),var(--accent)); z-index:2000}
 
       /* Scrollspy target padding fix */
       [data-bs-spy="scroll"] .scroll-mt{scroll-margin-top: 80px}
@@ -419,7 +444,7 @@
                   <span class="chip">CNN Image Colorization</span>
                   <span class="chip">Creative Music Generator (Python)</span>
                   <span class="chip">Smart Cooking Bot (Lisp + FCG)</span>
-                  <span class="chip">E‑commerce Semantic Web (PostgreSQL)</span>
+                  <span class="chip">E-commerce Semantic Web (PostgreSQL)</span>
                   <span class="chip">Poster DSL (SWI Prolog)</span>
                   <span class="chip">Nine Men’s Morris (Prolog)</span>
                   <span class="chip">Microservices Booking (Scala Akka)</span>
@@ -438,20 +463,20 @@
       <section id="teaching" class="scroll-mt reveal">
         <div class="container-fluid">
           <h2 class="section-title">Teaching</h2>
-          <div class="row g-3">
-            <div class="col-12 col-xl-10">
-              <div class="card p-4 timeline hover-rise">
-                <div class="mb-3"><span class="dot"></span> <strong>Instructor</strong> — University of Kashan — Computer Lab <span class="muted">(Sep 2020 – Jan 2021)</span></div>
-                <div class="mb-3"><span class="dot"></span> <strong>Teaching Assistant</strong> — University of Kashan — Basic Programming; Prof. Dr. Fereshteh Dehghani <span class="muted">(Sep 2019 – Jan 2020; Sep 2020 – Jan 2021)</span></div>
-                <div class="mb-0"><span class="dot"></span> <strong>Instructor</strong> — Salam Dibaji High School — Astrophysics <span class="muted">(Sep 2014 – Jun 2015)</span></div>
-              </div>
+        <div class="row g-3">
+          <div class="col-12 col-xl-10">
+            <div class="card p-4 timeline hover-rise">
+              <div class="mb-3"><span class="dot"></span> <strong>Instructor</strong> — University of Kashan — Computer Lab <span class="muted">(Sep 2020 – Jan 2021)</span></div>
+              <div class="mb-3"><span class="dot"></span> <strong>Teaching Assistant</strong> — University of Kashan — Basic Programming; Prof. Dr. Fereshteh Dehghani <span class="muted">(Sep 2019 – Jan 2020; Sep 2020 – Jan 2021)</span></div>
+              <div class="mb-0"><span class="dot"></span> <strong>Instructor</strong> — Salam Dibaji High School — Astrophysics <span class="muted">(Sep 2014 – Jun 2015)</span></div>
             </div>
           </div>
         </div>
+        </div>
       </section>
 
-      <!-- Skills & Tests + Charts -->
-      <section id="skills" class="scroll-mt reveal">
+      <!-- Skills & Tests -->
+      <section id="skills" class="scroll-mt reveal" data-delay="2">
         <div class="container-fluid">
           <h2 class="section-title">Skills & Test Scores</h2>
           <div class="row g-3">
@@ -489,17 +514,6 @@
                   <span class="chip">Turtle</span>
                   <span class="chip">OWL</span>
                   <span class="chip">JavaScript</span>
-                </div>
-                <hr class="my-4" />
-                <div class="row g-4">
-                  <div class="col-md-6">
-                    <h3 class="h6 text-uppercase">Tech Stack Snapshot</h3>
-                    <canvas id="skillChart" height="200" aria-label="Skill proficiency chart" role="img"></canvas>
-                  </div>
-                  <div class="col-md-6">
-                    <h3 class="h6 text-uppercase">Language Test Breakdown (IELTS)</h3>
-                    <canvas id="examChart" height="200" aria-label="Language test chart" role="img"></canvas>
-                  </div>
                 </div>
                 <hr class="my-4" />
                 <h3 class="h6 text-uppercase">Tools & Platforms</h3>
@@ -563,7 +577,7 @@
                   <li>Create Your First Web App with Python & Flask — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/CQNQ876N6U8X" target="_blank" rel="noopener">Certificate</a></li>
                   <li>Concepts in Python: Loops, Functions & Returns — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/AWFFBPBZ9ZPS" target="_blank" rel="noopener">Certificate</a></li>
                   <li>ChatGPT with Python: Build a Chatbot with the OpenAI API — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/FRQ9M37S2WJ6" target="_blank" rel="noopener">Certificate</a></li>
-                  <li>COVID‑19 Data Analysis Using Python — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/JBU5K4YK8Z5J" target="_blank" rel="noopener">Certificate</a></li>
+                  <li>COVID-19 Data Analysis Using Python — Coursera — <a href="https://www.coursera.org/account/accomplishments/certificate/JBU5K4YK8Z5J" target="_blank" rel="noopener">Certificate</a></li>
                 </ul>
               </div>
             </div>
@@ -580,7 +594,7 @@
               <div class="card p-4 hover-rise">
                 <h3 class="h6 text-uppercase">Leadership</h3>
                 <ul>
-                  <li>Co‑founder, Synapse Game Development Group — 2018, University of Kashan</li>
+                  <li>Co-founder, Synapse Game Development Group — 2018, University of Kashan</li>
                   <li>Manager, University of Kashan’s Game Development Club — 2018–2020</li>
                 </ul>
                 <h3 class="h6 text-uppercase mt-3">Memberships</h3>
@@ -639,6 +653,8 @@
         </div>
       </section>
 
+      <div id="progress" aria-hidden="true"></div>
+
       <footer class="mt-4">
         <div class="container-fluid">
           <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 col-12 col-xl-10">
@@ -673,8 +689,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <!-- Chart.js for charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" crossorigin="anonymous"></script>
 
     <script>
       // Year
@@ -686,56 +700,20 @@
         bootstrap.ScrollSpy.getInstance(dataSpyEl) || new bootstrap.ScrollSpy(dataSpyEl, { target: '#nav', offset: 80 })
       })
 
-      // Reveal on scroll
+      // Reveal on scroll with stagger
       const io = new IntersectionObserver((entries)=>{
         entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} })
       }, {threshold: .15});
-      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+      document.querySelectorAll('.reveal').forEach((el,i)=>{ el.setAttribute('data-delay', (i%3)+1); io.observe(el); });
 
-      // Charts
-      const skillCtx = document.getElementById('skillChart');
-      if (skillCtx) {
-        new Chart(skillCtx, {
-          type: 'radar',
-          data: {
-            labels: ['Python','C#','.NET','Swift','SQL','Prolog','HTML/CSS','Julia'],
-            datasets: [{
-              label: 'Proficiency',
-              data: [95, 85, 85, 70, 80, 65, 80, 55],
-              fill: true,
-              pointRadius: 3,
-            }]
-          },
-          options: {
-            responsive: true,
-            scales: { r: { angleLines: { color: 'rgba(255,255,255,.15)' }, grid: { color: 'rgba(255,255,255,.12)' }, pointLabels: { color: getComputedStyle(document.documentElement).getPropertyValue('--muted') }, ticks: { display:false } } },
-            plugins: { legend: { labels:{ color: getComputedStyle(document.documentElement).getPropertyValue('--fg') } } }
-          }
-        });
-      }
-
-      const examCtx = document.getElementById('examChart');
-      if (examCtx) {
-        new Chart(examCtx, {
-          type: 'bar',
-          data: {
-            labels: ['Listening','Reading','Speaking','Writing'],
-            datasets: [{
-              label: 'IELTS (0-9)',
-              data: [8.5, 7.0, 6.5, 6.0],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            responsive: true,
-            scales: {
-              x: { ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--fg') }, grid: { color: 'rgba(255,255,255,.08)' } },
-              y: { beginAtZero: true, suggestedMax: 9, ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--fg') }, grid: { color: 'rgba(255,255,255,.08)' } }
-            },
-            plugins: { legend: { labels:{ color: getComputedStyle(document.documentElement).getPropertyValue('--fg') } } }
-          }
-        });
-      }
+      // Scroll progress bar
+      const progress = document.getElementById('progress');
+      const onScroll = () => {
+        const h = document.documentElement;
+        const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+        progress.style.width = (scrolled * 100) + '%';
+      };
+      document.addEventListener('scroll', onScroll, {passive:true});
     </script>
   </body>
 </html>
