@@ -155,6 +155,136 @@
       .h1, .h2, .h3, .h4, .h5, .h6 {
         color: var(--fg) !important;
       }
+      /* ==== COLOR BOOST PACK ==== */
+/* Extra accent tones (kept subtle) */
+:root{
+  --violet: #b197fc;
+  --pink:   #faa2c1;
+  --teal:   #63e6be;
+  --orange: #ffa94d;
+}
+
+/* Aurora background (soft color clouds) */
+body::after{
+  content:"";
+  position:fixed; inset:-25%;
+  background:
+    radial-gradient(20rem 16rem at 20% 15%, rgba(116,192,252,.18), transparent 60%),
+    radial-gradient(24rem 18rem at 85% 10%, rgba(250,162,193,.16), transparent 65%),
+    radial-gradient(28rem 22rem at 10% 80%, rgba(99,230,190,.14), transparent 70%),
+    radial-gradient(30rem 24rem at 90% 85%, rgba(177,151,252,.18), transparent 70%);
+  filter: blur(28px) saturate(120%);
+  opacity:.55;
+  pointer-events:none;
+  z-index:0;
+  animation: auroraPan 28s ease-in-out infinite alternate;
+}
+@keyframes auroraPan{
+  0%   { transform: rotate(0deg) scale(1.0) translate3d(0,0,0); }
+  50%  { transform: rotate(7deg) scale(1.06) translate3d(2%, -2%, 0); }
+  100% { transform: rotate(-4deg) scale(1.04) translate3d(-2%, 1%, 0); }
+}
+
+/* Lift the main content above the aurora layer */
+main, .sideNav, header, footer { position: relative; z-index: 1; }
+
+/* Section titles with gradient ink + soft glow */
+.section-title{
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 45%, var(--violet) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 0 transparent; /* keep crisp */
+  filter: drop-shadow(0 0 8px rgba(116,192,252,0.22));
+}
+
+/* Card color depth + border glow */
+.card{
+  border: 1px solid rgba(116,192,252,0.22);
+  background:
+    radial-gradient(80rem 50rem at -10% -20%, rgba(116,192,252,0.06), transparent 60%),
+    radial-gradient(60rem 40rem at 110% -10%, rgba(255,212,59,0.05), transparent 65%),
+    radial-gradient(70rem 46rem at 0% 120%, rgba(177,151,252,0.05), transparent 70%),
+    var(--card);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35), 0 0 22px rgba(116,192,252,.06);
+  transition: box-shadow .35s ease, transform .35s ease, border-color .35s ease;
+}
+.card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(255,212,59,0.35);
+  box-shadow: 0 16px 40px rgba(0,0,0,.45), 0 0 28px rgba(255,212,59,.15);
+}
+
+/* Chips with lively gradient and hover glow */
+.chip{
+  background: linear-gradient(135deg, rgba(116,192,252,0.12), rgba(177,151,252,0.10) 55%, rgba(255,212,59,0.10));
+  border: 1px solid rgba(116,192,252,0.32);
+  box-shadow: inset 0 0 8px rgba(116,192,252,0.12);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+}
+.chip:hover{
+  transform: scale(1.05);
+  border-color: rgba(255,212,59,0.55);
+  box-shadow: 0 0 14px rgba(255,212,59,0.35), inset 0 0 10px rgba(177,151,252,0.18);
+  background: linear-gradient(135deg, rgba(255,212,59,0.16), rgba(116,192,252,0.18));
+}
+
+/* Timeline gets a color accent */
+.timeline{
+  border-left: 2px solid rgba(116,192,252,0.35);
+  background: linear-gradient(180deg, rgba(116,192,252,0.06), rgba(255,212,59,0.06));
+  border-radius: 12px;
+}
+.timeline .dot{
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(255,212,59,.65);
+}
+
+/* Sidebar/nav color feedback */
+.sideNav{
+  background: linear-gradient(180deg, rgba(20,30,55,.9), rgba(15,25,45,.92) 30%, rgba(15,20,35,.96));
+  border-right: 1px solid rgba(116,192,252,0.22);
+}
+.nav-link:hover,
+.nav-link.active{
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(255,212,59,.45);
+}
+
+/* Social icons – subtle brand-like glow on hover */
+.social a{
+  background: radial-gradient(circle at 30% 30%, rgba(116,192,252,0.18), rgba(0,0,0,0) 60%), var(--chip);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.social a:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.35), 0 0 14px rgba(116,192,252,.35);
+  background: radial-gradient(circle at 30% 30%, rgba(177,151,252,0.25), rgba(0,0,0,0) 60%), var(--chip);
+}
+
+/* Buttons – gradient fill + glow */
+.btn-primary{
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  border: none;
+  box-shadow: 0 0 10px rgba(116,192,252,0.28);
+}
+.btn-primary:hover{
+  box-shadow: 0 0 22px rgba(255,212,59,0.45);
+  transform: translateY(-2px);
+}
+
+/* Links – elegant underline reveal */
+a{ position: relative; text-decoration: none; }
+a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:-2px; height:2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition:right .25s ease;
+}
+a:hover::after{ right:0; }
+
+/* Progress bar with richer spectrum */
+#progress{
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 45%, var(--violet) 75%, var(--pink) 100%);
+}
     </style>
 
     <script type="application/ld+json">
