@@ -231,6 +231,27 @@
       @media (prefers-reduced-motion: reduce){
         *, *::before, *::after{ animation: none !important; transition: none !important }
       }
+
+      /* --- FIX: Prevent animated layers from blocking clicks --- */
+
+      /* Any decorative pseudo-element must not intercept clicks */
+      body::before,
+      body::after,
+      .sideNav::before,
+      .sideNav::after,
+      .card::before,
+      .card::after,
+      .chip::before,
+      .chip::after {pointer-events: none !important;}
+
+      /* Any animated glow or hue-rotating layer */
+      .glow-border::before,
+      .animated-overlay,
+      .bg-aurora,
+      .gradient-layer {pointer-events: none !important;}
+
+      /* Safety catch-all for custom animation layers */
+      *[data-decorative="true"] {pointer-events: none !important;}
     </style>
 
     <script type="application/ld+json">
