@@ -99,12 +99,20 @@
       }
       /* animated aurora layers: color cycle only */
       body::before, body::after{
-        content:""; position:fixed; inset:-10vmax; pointer-events:none; z-index:-1;
+        content:""; position:fixed; inset:-10vmax; pointer-events:none; z-index:-2;
         background: var(--grad-2);
         opacity:.08; mix-blend-mode: screen; filter: blur(40px) saturate(120%);
         animation: auroraShift 24s ease-in-out infinite, hueCycle 28s linear infinite;
       }
       body::after{ animation-duration: 32s, 36s; animation-direction: normal, reverse; opacity:.07; }
+
+      /* === Responsive 2D Canvas Animation (behind content) === */
+      #fx-canvas{
+        position: fixed; inset: 0; z-index: -3;
+        width: 100vw; height: 100vh;
+        pointer-events: none; /* never block clicks */
+        filter: saturate(1.2) contrast(1.05);
+      }
 
       *, *::before, *::after{box-sizing:border-box}
       a{color:var(--link)}
@@ -157,11 +165,12 @@
         -webkit-mask-composite: xor; mask-composite: exclude; 
         filter: saturate(120%);
         animation: hueCycle 18s linear infinite;
+        pointer-events: none;
       }
 
       .chip{display:inline-block; padding:.5rem .85rem; border-radius:999px; background:var(--chip); color:var(--fg); margin:.35rem .4rem .35rem 0; font-size:.9rem; border:1px solid var(--border); position:relative; overflow:hidden}
       .chip::after{content:""; position:absolute; inset:0; background: linear-gradient(120deg, transparent, rgba(255,255,255,.18), transparent);
-        transform: translateX(-120%); transition: transform .6s ease;}
+        transform: translateX(-120%); transition: transform .6s ease; pointer-events:none}
       .chip:hover::after{ transform: translateX(120%); }
       .chip:hover{ box-shadow: 0 8px 24px rgba(0,0,0,.25); }
 
@@ -208,7 +217,7 @@
       .hover-rise{transition:transform .28s ease, box-shadow .28s ease}
       .hover-rise:hover{transform:translateY(-6px) scale(1.01); box-shadow:0 18px 44px rgba(0,0,0,.38)}
       .glow-border{position:relative}
-      .glow-border:before{content:""; position:absolute; inset:-1px; background:linear-gradient(120deg, rgba(116,192,252,.6), rgba(165,180,252,.5), transparent 70%); filter:blur(8px); z-index:-1; border-radius:.85rem}
+      .glow-border:before{content:""; position:absolute; inset:-1px; background:linear-gradient(120deg, rgba(116,192,252,.6), rgba(165,180,252,.5), transparent 70%); filter:blur(8px); z-index:-1; border-radius:.85rem; pointer-events:none}
 
       /* Scroll progress bar */
       #progress{position:fixed; top:0; left:0; height:3px; width:0; background:linear-gradient(90deg,var(--primary),var(--accent)); z-index:2000}
@@ -230,28 +239,12 @@
       /* Respect reduced motion */
       @media (prefers-reduced-motion: reduce){
         *, *::before, *::after{ animation: none !important; transition: none !important }
+        #fx-canvas{ display:none; }
       }
 
       /* --- FIX: Prevent animated layers from blocking clicks --- */
-
-      /* Any decorative pseudo-element must not intercept clicks */
-      body::before,
-      body::after,
-      .sideNav::before,
-      .sideNav::after,
-      .card::before,
-      .card::after,
-      .chip::before,
-      .chip::after {pointer-events: none !important;}
-
-      /* Any animated glow or hue-rotating layer */
-      .glow-border::before,
-      .animated-overlay,
-      .bg-aurora,
-      .gradient-layer {pointer-events: none !important;}
-
-      /* Safety catch-all for custom animation layers */
-      *[data-decorative="true"] {pointer-events: none !important;}
+      body::before, body::after, .sideNav::before, .sideNav::after, .card::before, .card::after, .chip::before, .chip::after,
+      .glow-border::before, .animated-overlay, .bg-aurora, .gradient-layer, *[data-decorative="true"] {pointer-events: none !important;}
     </style>
 
     <script type="application/ld+json">
@@ -275,6 +268,7 @@
   </head>
 
   <body data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="80" tabindex="0">
+    <canvas id="fx-canvas" aria-hidden="true"></canvas>
     <a class="skip-link" href="#about">Skip to content</a>
 
     <!-- Sidebar -->
@@ -406,7 +400,7 @@
                     <p class="mb-2 muted">Computer Engineering</p>
                     <ul class="mb-0">
                       <li>GPA: <strong>3.78/4.00</strong> (WES); Last two years: <strong>3.87/4.00</strong> (WES)</li>
-                      <li>Thesis: <em>Examining the Michigan Method to Classify Medical Data</em> — Grade: <strong>A</strong> (<a href="https://www.researchgate.net/profile/Ardavan-Khalij/publication/362126708_brrsy_rwsh_myshygan_bh_mnzwr_tbqh_bndy_dadh_hay_pzshky/links/62d7d00411afc23ee4ce0e3b/brrsy-rwsh-myshygan-bh-mnzwr-tbqh-bndy-dadh-hay_pzshky.pdf?origin=publicationDetail" target="_blank" rel="noopener">View</a>)</li>
+                      <li>Thesis: <em>Examining the Michigan Method to Classify Medical Data</em> — Grade: <strong>A</strong> (<a href="https://www.researchgate.net/profile/Ardavan-Khalij/publication/362126708_brrsy_rwsh_myshygan_bh_mnzwr_tbqh_bndy_dadh_hay_pzshky/links/62d7d00411afc23ee4ce0e3b/brrsy-rwsh-myshygan-bh-mnzwr-tbqh-bndy-dadh_hay_pzshky.pdf?origin=publicationDetail" target="_blank" rel="noopener">View</a>)</li>
                       <li>Supervisor: Dr. Mehdi Vahidipour</li>
                       <li>Diploma & Transcript: <a href="https://drive.google.com/uc?id=1QJf4CRcxGuIWmSDrkCtc67NN_OqG5kt2&export=download" target="_blank" rel="noopener">Download</a></li>
                     </ul>
@@ -486,83 +480,82 @@
       <section id="experience" class="scroll-mt reveal">
         <div class="container-fluid">
           <h2 class="section-title">Experience</h2>
-          <div class="row g-3">
-            <div class="col-12 col-xl-10">
-              <div class="card p-4 hover-rise">
-                <div class="d-flex justify-content-between flex-wrap gap-2">
-                  <div>
-                    <h3 class="h5 mb-1">IT Young Professional</h3>
-                    <p class="mb-2 muted">AG Insurance • Brussels, Belgium</p>
-                    <ul class="mb-0">
-                      <li>IS Non-Life API Team</li>
-                    </ul>
-                  </div>
-                  <div class="text-end muted">Sep 2023 – Present</div>
+        <div class="row g-3">
+          <div class="col-12 col-xl-10">
+            <div class="card p-4 hover-rise">
+              <div class="d-flex justify-content-between flex-wrap gap-2">
+                <div>
+                  <h3 class="h5 mb-1">IT Young Professional</h3>
+                  <p class="mb-2 muted">AG Insurance • Brussels, Belgium</p>
+                  <ul class="mb-0">
+                    <li>IS Non-Life API Team</li>
+                  </ul>
                 </div>
-              </div>
-            </div>
-            <div class="col-12 col-xl-10">
-              <div class="card p-4 hover-rise">
-                <div class="d-flex justify-content-between flex-wrap gap-2">
-                  <div>
-                    <h3 class="h5 mb-1">NLP unit designer for emergency call centers</h3>
-                    <p class="mb-2 muted">VUB & Belgian Federal Police • Brussels, Belgium</p>
-                    <ul class="mb-0">
-                      <li>Designed an NLU to assist call takers with suggested questions, using <span class="kbd">spaCy</span> in Python.</li>
-                    </ul>
-                  </div>
-                  <div class="text-end muted">Jan 2022 – Jun 2023</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-xl-10">
-              <div class="card p-4 hover-rise">
-                <div class="d-flex justify-content-between flex-wrap gap-2">
-                  <div>
-                    <h3 class="h5 mb-1">UI/UX Designer & Application Developer</h3>
-                    <p class="mb-2 muted">Khushe Mehdi Co. • Gilan, Iran</p>
-                    <ul class="mb-0">
-                      <li>Built a product management desktop app with Python <span class="kbd">tkinter</span>.</li>
-                    </ul>
-                  </div>
-                  <div class="text-end muted">Feb 2020 – Jun 2020</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-xl-10">
-              <div class="card p-4 hover-rise">
-                <div class="d-flex justify-content-between flex-wrap gap-2">
-                  <div>
-                    <h3 class="h5 mb-1">iOS Developer & UI/UX Designer</h3>
-                    <p class="mb-2 muted">PINCO • Kashan, Iran</p>
-                    <ul class="mb-0">
-                      <li>Developed an iOS app for reservations and company information (Sib App Store).</li>
-                    </ul>
-                  </div>
-                  <div class="text-end muted">Dec 2018 – Mar 2019</div>
-                </div>
+                <div class="text-end muted">Sep 2023 – Present</div>
               </div>
             </div>
           </div>
-          <div class="row g-3 mt-1">
-            <div class="col-12 col-xl-10">
-              <div class="card p-4 hover-rise">
-                <h3 class="h6 text-uppercase mb-3">Selected Academic Projects</h3>
-                <div class="grid gridCols-3">
-                  <span class="chip">NLP assistant for CIC call takers</span>
-                  <span class="chip">WoLF-PHC (WoLF+)</span>
-                  <span class="chip">CNN Image Colorization</span>
-                  <span class="chip">Creative Music Generator (Python)</span>
-                  <span class="chip">Smart Cooking Bot (Lisp + FCG)</span>
-                  <span class="chip">E-commerce Semantic Web (PostgreSQL)</span>
-                  <span class="chip">Poster DSL (SWI Prolog)</span>
-                  <span class="chip">Nine Men’s Morris (Prolog)</span>
-                  <span class="chip">Microservices Booking (Scala Akka)</span>
-                  <span class="chip">Twitter-like site (Scala Play)</span>
-                  <span class="chip">NPM package extractor (Akka Streams)</span>
-                  <span class="chip">iOS puzzle & logic games (AI)</span>
-                  <span class="chip">ALU & Simple CPU (Proteus)</span>
+          <div class="col-12 col-xl-10">
+            <div class="card p-4 hover-rise">
+              <div class="d-flex justify-content-between flex-wrap gap-2">
+                <div>
+                  <h3 class="h5 mb-1">NLP unit designer for emergency call centers</h3>
+                  <p class="mb-2 muted">VUB & Belgian Federal Police • Brussels, Belgium</p>
+                  <ul class="mb-0">
+                    <li>Designed an NLU to assist call takers with suggested questions, using <span class="kbd">spaCy</span> in Python.</li>
+                  </ul>
                 </div>
+                <div class="text-end muted">Jan 2022 – Jun 2023</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-10">
+            <div class="card p-4 hover-rise">
+              <div class="d-flex justify-content-between flex-wrap gap-2">
+                <div>
+                  <h3 class="h5 mb-1">UI/UX Designer & Application Developer</h3>
+                  <p class="mb-2 muted">Khushe Mehdi Co. • Gilan, Iran</p>
+                  <ul class="mb-0">
+                    <li>Built a product management desktop app with Python <span class="kbd">tkinter</span>.</li>
+                  </ul>
+                </div>
+                <div class="text-end muted">Feb 2020 – Jun 2020</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-10">
+            <div class="card p-4 hover-rise">
+              <div class="d-flex justify-content-between flex-wrap gap-2">
+                <div>
+                  <h3 class="h5 mb-1">iOS Developer & UI/UX Designer</h3>
+                  <p class="mb-2 muted">PINCO • Kashan, Iran</p>
+                  <ul class="mb-0">
+                    <li>Developed an iOS app for reservations and company information (Sib App Store).</li>
+                  </ul>
+                </div>
+                <div class="text-end muted">Dec 2018 – Mar 2019</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3 mt-1">
+          <div class="col-12 col-xl-10">
+            <div class="card p-4 hover-rise">
+              <h3 class="h6 text-uppercase mb-3">Selected Academic Projects</h3>
+              <div class="grid gridCols-3">
+                <span class="chip">NLP assistant for CIC call takers</span>
+                <span class="chip">WoLF-PHC (WoLF+)</span>
+                <span class="chip">CNN Image Colorization</span>
+                <span class="chip">Creative Music Generator (Python)</span>
+                <span class="chip">Smart Cooking Bot (Lisp + FCG)</span>
+                <span class="chip">E-commerce Semantic Web (PostgreSQL)</span>
+                <span class="chip">Poster DSL (SWI Prolog)</span>
+                <span class="chip">Nine Men’s Morris (Prolog)</span>
+                <span class="chip">Microservices Booking (Scala Akka)</span>
+                <span class="chip">Twitter-like site (Scala Play)</span>
+                <span class="chip">NPM package extractor (Akka Streams)</span>
+                <span class="chip">iOS puzzle & logic games (AI)</span>
+                <span class="chip">ALU & Simple CPU (Proteus)</span>
               </div>
             </div>
           </div>
@@ -824,6 +817,89 @@
         progress.style.width = (scrolled * 100) + '%';
       };
       document.addEventListener('scroll', onScroll, {passive:true});
+
+      // === Responsive 2D Canvas Animation (constellation network) ===
+      (() => {
+        const canvas = document.getElementById('fx-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1)); // cap DPR for perf
+        let w, h, points, hueBase = 210;
+        let lastTimestamp = 0;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function resize() {
+          w = canvas.clientWidth = window.innerWidth;
+          h = canvas.clientHeight = window.innerHeight;
+          canvas.width = Math.floor(w * DPR);
+          canvas.height = Math.floor(h * DPR);
+          ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+          // number of points proportional to area, clamped
+          const count = Math.max(40, Math.min(160, Math.floor((w * h) / 15000)));
+          points = new Array(count).fill(0).map(() => ({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.25,
+            vy: (Math.random() - 0.5) * 0.25,
+            r: 1 + Math.random() * 1.5
+          }));
+        }
+
+        function step(ts) {
+          const dt = Math.min(32, ts - lastTimestamp || 16);
+          lastTimestamp = ts;
+
+          ctx.clearRect(0, 0, w, h);
+
+          hueBase = (hueBase + dt * 0.01) % 360; // slow hue drift
+          const lineDist = Math.max(60, Math.min(140, Math.sqrt(w * h) / 10));
+
+          // move and draw points
+          for (let i = 0; i < points.length; i++) {
+            const p = points[i];
+            p.x += p.vx * dt;
+            p.y += p.vy * dt;
+
+            // bounce softly off edges
+            if (p.x < 0 || p.x > w) p.vx *= -1;
+            if (p.y < 0 || p.y > h) p.vy *= -1;
+
+            // draw node
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${(hueBase + p.x * 0.02 + p.y * 0.02) % 360}, 80%, 65%, 0.6)`;
+            ctx.fill();
+          }
+
+          // draw connections
+          for (let i = 0; i < points.length; i++) {
+            for (let j = i + 1; j < points.length; j++) {
+              const dx = points[i].x - points[j].x;
+              const dy = points[i].y - points[j].y;
+              const d2 = dx * dx + dy * dy;
+              if (d2 < lineDist * lineDist) {
+                const alpha = 1 - (Math.sqrt(d2) / lineDist);
+                ctx.strokeStyle = `hsla(${(hueBase + (points[i].x + points[j].x) * 0.02) % 360}, 90%, 60%, ${alpha * 0.35})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(points[i].x, points[i].y);
+                ctx.lineTo(points[j].x, points[j].y);
+                ctx.stroke();
+              }
+            }
+          }
+
+          if (!reduceMotion) requestAnimationFrame(step);
+        }
+
+        window.addEventListener('resize', resize, { passive: true });
+        resize();
+        if (!reduceMotion) requestAnimationFrame(step);
+        else {
+          // draw one static frame for reduced motion users
+          step(16);
+        }
+      })();
     </script>
   </body>
 </html>
